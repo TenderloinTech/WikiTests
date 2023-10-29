@@ -1,41 +1,59 @@
-GET /
+# HuskyLink API Docs
+
+Base URL: https://api.tenderloin.tech
+
+## GET /
 
 No parameters
 
-Success Response
+### Success Response
 
+```json
 {"online": true}
-POST /api/v1/login
+```
 
-Parameter Name	Datatype	Description
-username	String	
-password	String	
-Success Response
+## POST /api/v1/login
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| username | String |  |
+| password | String |  |
+
+### Success Response
+
+```json
 {
   "result": {
     "password": true
   }
 }
-Error Response
+```
 
+### Error Response
+
+```json
 {
   "result": {
     "password": false,
     "returnedPassword": <String>
   }
 }
-POST /api/v1/createAccount
+```
 
-Parameter Name	Datatype	Description
-username	String	
-password	String	
-realName	String	Name of the user, if the username is “AnishSahoo39”, real name would be “Anish Sahoo”
-createdAt	Integer	Epoch time of when user joined.
-userType	String	User type, admin/student/professor
-isBanned	Boolean	Has the user been banned/blocked from the service?
-Success Response
+## POST /api/v1/createAccount
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| username | String |  |
+| password | String |  |
+| realName | String | Name of the user, if the username is “AnishSahoo39”, real name would be “Anish Sahoo” |
+| createdAt | Integer | Epoch time of when user joined. |
+| userType | String | User type, admin/student/professor |
+| isBanned | Boolean | Has the user been banned/blocked from the service? |
+
+### Success Response
+
+```json
 {
   "result": {
     "success": true,
@@ -43,12 +61,17 @@ Success Response
     "createdAt": <Integer>
   }
 }
-GET /api/v1/getUserInfo/
+```
 
-Parameter Name	Datatype	Description
-username	String	Username to search
-Success Response
+## GET /api/v1/getUserInfo/<username>
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| username | String | Username to search |
+
+### Success Response
+
+```json
 [
   [
     "trent",
@@ -60,15 +83,21 @@ Success Response
     null
   ]
 ]
-Error Response
+```
 
+### Error Response
+
+```json
 []
-GET /api/v1/listAllUsers
+```
+
+## GET /api/v1/listAllUsers
 
 No parameters
 
-Success Response
+### Success Response
 
+```json
 [
   [
     "trent",
@@ -90,12 +119,17 @@ Success Response
   ],
 	...
 ]
-GET /api/v1/sortByUserType/
+```
 
-Parameter Name	Datatype	Description
-type	String	User type, admin/student/professor
-Success Response
+## GET /api/v1/sortByUserType/<type>
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| type | String | User type, admin/student/professor |
+
+### Success Response
+
+```json
 [
   [
     "trent",
@@ -117,15 +151,23 @@ Success Response
   ],
 	...
 ]
-Error Response
+```
 
+### Error Response
+
+```json
 []
-GET /api/v1/searchUsers
+```
 
-Parameter Name	Datatype	Description
-q	String	Search query, searches usernames and realNames
-Success Response
+## GET /api/v1/searchUsers
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| q | String | Search query, searches usernames and realNames |
+
+### Success Response
+
+```json
 [
   [
     "trent",
@@ -138,25 +180,36 @@ Success Response
   ],
 	...
 ]
-Error Response
+```
 
+### Error Response
+
+```json
 []
-POST /api/v1/createNewRequest
+```
 
-Parameter Name	Datatype	Description
-username	String	
-title	String	Title of the help request
-description	String	Description of the help request
-tags	JSON	tags in a JSON list, ie. [”java”, “linux”, “khoury”]
-Success Response
+## POST /api/v1/createNewRequest
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| username | String |  |
+| title | String | Title of the help request |
+| description | String | Description of the help request |
+| tags | JSON | tags in a JSON list, ie. [”java”, “linux”, “khoury”] |
+
+### Success Response
+
+```json
 {"result": {"uniqueID": <Integer>}}
-GET /api/v1/listRequests
+```
+
+## GET /api/v1/listRequests
 
 No parameters
 
-Success Response
+### Success Response
 
+```json
 [
   [
     "None",
@@ -172,12 +225,17 @@ Success Response
   ],
 	...
 ]
-GET /api/v1/sortRequestsByTag
+```
 
-Parameter Name	Datatype	Description
-tags	String	Comma separated list of tags. Examples: “khoury” or “khoury,java,linux”
-Success Response
+## GET /api/v1/sortRequestsByTag
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| tags | String | Comma separated list of tags. Examples: “khoury” or “khoury,java,linux” |
+
+### Success Response
+
+```json
 [
   [
     "None",
@@ -193,15 +251,23 @@ Success Response
   ],
 	...
 ]
-Error Response
+```
 
+### Error Response
+
+```json
 []
-GET /api/v1/searchRequests
+```
 
-Parameter Name	Datatype	Description
-q	String	Search query, searches titles and descriptions
-Success Response
+## GET /api/v1/searchRequests
 
+| Parameter Name | Datatype | Description |
+| --- | --- | --- |
+| q | String | Search query, searches titles and descriptions |
+
+### Success Response
+
+```json
 [
   [
     "None",
@@ -217,6 +283,10 @@ Success Response
   ],
 	...
 ]
-Error Response
+```
 
+### Error Response
+
+```json
 []
+```
