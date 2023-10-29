@@ -1,0 +1,23 @@
+# **Things we used**
+
+- [DigitalOcean](https://www.digitalocean.com)
+  - Host the website
+  - Virtual Server
+- [CaddyServer](https://caddyserver.com/)
+  - Reverse Proxy
+  - HTTPS
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/)
+  - Create the web server
+  - Requests router
+- [Reflex](https://reflex.dev/)
+  - Frontend for application
+  - Backend for application
+- [Python](https://www.python.org)
+  - Frontend
+  - Backend
+  - Middleware
+- [CockroachDB](https://www.cockroachlabs.com)
+  - Database for Backend
+  - Server 
+- HTML/CSS/JS
+  - Front End
