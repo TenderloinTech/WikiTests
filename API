@@ -1,0 +1,222 @@
+GET /
+
+No parameters
+
+Success Response
+
+{"online": true}
+POST /api/v1/login
+
+Parameter Name	Datatype	Description
+username	String	
+password	String	
+Success Response
+
+{
+  "result": {
+    "password": true
+  }
+}
+Error Response
+
+{
+  "result": {
+    "password": false,
+    "returnedPassword": <String>
+  }
+}
+POST /api/v1/createAccount
+
+Parameter Name	Datatype	Description
+username	String	
+password	String	
+realName	String	Name of the user, if the username is “AnishSahoo39”, real name would be “Anish Sahoo”
+createdAt	Integer	Epoch time of when user joined.
+userType	String	User type, admin/student/professor
+isBanned	Boolean	Has the user been banned/blocked from the service?
+Success Response
+
+{
+  "result": {
+    "success": true,
+    "message": "ok",
+    "createdAt": <Integer>
+  }
+}
+GET /api/v1/getUserInfo/
+
+Parameter Name	Datatype	Description
+username	String	Username to search
+Success Response
+
+[
+  [
+    "trent",
+    "Trent Wiles",
+    1698525331,
+    "student",
+    "https://trentwil.es/a/FI3S64vsT4.png",
+    false,
+    null
+  ]
+]
+Error Response
+
+[]
+GET /api/v1/listAllUsers
+
+No parameters
+
+Success Response
+
+[
+  [
+    "trent",
+    "Trent Wiles",
+    1698525331,
+    "student",
+    "https://trentwil.es/a/FI3S64vsT4.png",
+    false,
+    null
+  ],
+  [
+    "trent452090",
+    "Trent Wiles",
+    1698525331,
+    "student",
+    "https://trentwil.es/a/FI3S64vsT4.png",
+    false,
+    null
+  ],
+	...
+]
+GET /api/v1/sortByUserType/
+
+Parameter Name	Datatype	Description
+type	String	User type, admin/student/professor
+Success Response
+
+[
+  [
+    "trent",
+    "Trent Wiles",
+    1698525331,
+    "student",
+    "https://trentwil.es/a/FI3S64vsT4.png",
+    false,
+    null
+  ],
+  [
+    "trent452090",
+    "Trent Wiles",
+    1698525331,
+    "student",
+    "https://trentwil.es/a/FI3S64vsT4.png",
+    false,
+    null
+  ],
+	...
+]
+Error Response
+
+[]
+GET /api/v1/searchUsers
+
+Parameter Name	Datatype	Description
+q	String	Search query, searches usernames and realNames
+Success Response
+
+[
+  [
+    "trent",
+    "Trent Wiles",
+    1698525331,
+    "student",
+    "https://trentwil.es/a/FI3S64vsT4.png",
+    false,
+    null
+  ],
+	...
+]
+Error Response
+
+[]
+POST /api/v1/createNewRequest
+
+Parameter Name	Datatype	Description
+username	String	
+title	String	Title of the help request
+description	String	Description of the help request
+tags	JSON	tags in a JSON list, ie. [”java”, “linux”, “khoury”]
+Success Response
+
+{"result": {"uniqueID": <Integer>}}
+GET /api/v1/listRequests
+
+No parameters
+
+Success Response
+
+[
+  [
+    "None",
+    "I need help with my code!",
+    "None",
+    [
+      "reactConsole",
+      "khoury"
+    ],
+    1698527693,
+    true,
+    2369180787
+  ],
+	...
+]
+GET /api/v1/sortRequestsByTag
+
+Parameter Name	Datatype	Description
+tags	String	Comma separated list of tags. Examples: “khoury” or “khoury,java,linux”
+Success Response
+
+[
+  [
+    "None",
+    "I need help with my code!",
+    "None",
+    [
+      "reactConsole",
+      "khoury"
+    ],
+    1698527693,
+    true,
+    2369180787
+  ],
+	...
+]
+Error Response
+
+[]
+GET /api/v1/searchRequests
+
+Parameter Name	Datatype	Description
+q	String	Search query, searches titles and descriptions
+Success Response
+
+[
+  [
+    "None",
+    "I need help with my code!",
+    "None",
+    [
+      "reactConsole",
+      "khoury"
+    ],
+    1698527693,
+    true,
+    2369180787
+  ],
+	...
+]
+Error Response
+
+[]
